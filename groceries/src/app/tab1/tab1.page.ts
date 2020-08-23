@@ -30,8 +30,8 @@ export class Tab1Page {
 
   ngOnInit() {
     console.log("Page loading...")
-    this.loadItems()
-
+    this.loadItems();
+    
   }
 
   loadItems() {
@@ -41,7 +41,6 @@ export class Tab1Page {
         error => this.errorMessage = <any>error
         );
   }
-
 
   async shareItem(item, index) {
     console.log("Sharing Item - ", item);
