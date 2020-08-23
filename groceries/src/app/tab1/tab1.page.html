@@ -22,7 +22,7 @@
     <ion-item-sliding *ngFor="let item of items; let i = index">
       <ion-item>
         <ion-label>{{item.name}}</ion-label>
-        <p>{{item.quantity}}</p>
+        <p>{{item.rating}}</p>
       </ion-item>
       <ion-item-options side="end">
         <button (click)="shareItem(item, i)" ion-button icon-start>

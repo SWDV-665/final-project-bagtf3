@@ -13,7 +13,7 @@ export class InputDialogService {
 
   async showPrompt(item?, index?) {
     const prompt = this.alertCtrl.create({
-      message: item ? "Please edit item..." : "Please enter item...",
+      message: item ? "Edit Review Here..." : "Add Review here..." ,
       inputs: [
         {
           name: 'name',
@@ -21,10 +21,20 @@ export class InputDialogService {
           value: item ? item.name : null
         },
         {
-          name: 'quantity',
-          placeholder: 'Quantity',
-          value: item ? item.quantity : null
+          name: 'rating',
+          placeholder: 'Rating',
+          value: item ? item.rating : null
         },
+        {
+          name: 'review',
+          placeholder: 'Review',
+          value: item ? item.review : null
+        },
+        {
+          name: 'user',
+          placeholder: 'User',
+          value: item ? item.user : null
+        }
       ],
       buttons: [
         {
@@ -39,7 +49,9 @@ export class InputDialogService {
             console.log('Saved clicked', item);
             if (index !== undefined) {
               item.name = data.name;
-              item.quantity = data.quantity;
+              item.rating = data.rating;
+              item.review = data.review;
+              item.user = data.user;
 
               this.dataService.editItem(item, index);
             }

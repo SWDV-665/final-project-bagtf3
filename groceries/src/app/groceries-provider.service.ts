@@ -32,9 +32,28 @@ export class GroceriesProviderService {
 
   private extractData(res: Response){
     let body = res;
+    console.log(body)
     return (body || []) as object[];
   }
 
+  getItemsUser(): Observable<object[]> {
+    return this.http.get(this.baseURL + '/api/groceries').pipe(
+      map(this.extractDataUser), catchError(this.handleError)
+    );
+  }
+
+  private extractDataUser(res: Response){
+    let body = res;
+    let userBody = [];
+
+    for (let entry of body as object[]) {
+      if (entry.user == 'bagtf3') {
+        userBody.push(entry)
+      }
+    }
+    console.log(userBody)
+    return (userBody || []) as object[];
+  }
   private handleError(error: Response | any){
     let errMsg : string;
     if(error instanceof Response){

@@ -11,6 +11,7 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
+
 export class Tab2Page {
 
   title = "Grocery";
@@ -33,7 +34,7 @@ export class Tab2Page {
   }
 
   loadItems() {
-    this.dataService.getItems()
+    this.dataService.getItemsUser()
       .subscribe(
         items => this.items = items,
         error => this.errorMessage = <any>error

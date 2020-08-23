@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      My Movie Reviews
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,15 +14,21 @@
   </ion-header>
   
   <h3 class="ion-text-center" *ngIf="items.length === 0">
-    No item available on the list!    
+    Add a Review to get Started!
   </h3>
 
 <!-- List of Sliding Items -->
   <ion-list>
     <ion-item-sliding *ngFor="let item of items; let i = index">
       <ion-item>
-        <ion-label>{{item.name}}</ion-label>
-        <p>{{item.quantity}}</p>
+        <ion-label>Title: {{item.name}}</ion-label>
+        <ion-grid>
+          <ion-row>
+            <ion-col> Rating: {{item.rating}}</ion-col>
+            <ion-col>Review: {{item.review}}</ion-col>
+          </ion-row>
+
+        </ion-grid>
       </ion-item>
       <ion-item-options side="end">
         <button (click)="shareItem(item, i)" ion-button icon-start>
@@ -37,7 +43,7 @@
 
         <button (click)="removeItem(item, i)" ion-button color="secondary" icon-start>
           <ion-icon name="trash" color="secondary"></ion-icon>
-          Done
+          Remove
         </button>
 
       </ion-item-options>
@@ -45,10 +51,11 @@
   </ion-list>
 
   <!-- fab placed to the (vertical) center and end -->
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
     <ion-fab-button (click)="addItem()">
-      <ion-icon name="videocam-outline"></ion-icon>
+      <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab> 
 
 </ion-content>
+
