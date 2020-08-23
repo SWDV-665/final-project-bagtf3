@@ -30,7 +30,8 @@ export class Tab1Page {
 
   ngOnInit() {
     console.log("Page loading...")
-    this.loadItems();
+    this.loadItems()
+
   }
 
   loadItems() {
@@ -41,18 +42,6 @@ export class Tab1Page {
         );
   }
 
-  async removeItem(item, index) {
-    console.log("Removing Item - ", item);
-    //this.dataService.items.splice(index, 1);
-    this.dataService.removeItem(item)
-
-    const toast = this.toastCtrl.create({
-      message: 'Removing Item - ' + item.name + " ...",
-      duration: 3000
-    });
-
-    return (await toast).present();
-  }
 
   async shareItem(item, index) {
     console.log("Sharing Item - ", item);
@@ -73,21 +62,4 @@ export class Tab1Page {
     
     return (await toast).present();
   }
-
-  async editItem(item, index) {
-    console.log("Edit Item - ", item, index);
-    this.inputDialogService.showPrompt(item, index);
-
-    const toast = this.toastCtrl.create({
-      message: 'Editing Item - ' + index + " ...",
-      duration: 3000
-    });
-    return (await toast).present();
-  }
-
-  addItem() {
-    console.log("Adding Item");
-    this.inputDialogService.showPrompt();
-  }
-
 }
